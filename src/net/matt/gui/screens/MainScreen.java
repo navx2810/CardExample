@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -71,6 +72,17 @@ public class MainScreen extends JFrame {
 		panel.add(btnCreateCard);
 		
 		JButton btnDeleteCard = new JButton("Delete Card");
+		btnDeleteCard.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				{
+					String cardName = JOptionPane.showInputDialog("Name of the card?");
+					if(CardList.has(cardName))
+						CardList.getCards().remove(CardList.getCard(cardName));
+						
+				}
+			}
+		});
 		panel.add(btnDeleteCard);
 		
 		JPanel panel_1 = new JPanel();
@@ -97,6 +109,22 @@ public class MainScreen extends JFrame {
 		panel_1.add(btnSave);
 		
 		JButton btnLoad = new JButton("Load");
+		btnLoad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					CardList.loadCardList(txtFilename.getText());
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (ClassNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		});
 		panel_1.add(btnLoad);
 		
 		JPanel panel_2 = new JPanel();
