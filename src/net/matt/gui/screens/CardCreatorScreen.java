@@ -65,7 +65,6 @@ public class CardCreatorScreen extends JDialog {
 				}
 				{
 					txtCardname = new JTextField();
-					txtCardname.setText("CardName");
 					panel_1.add(txtCardname);
 					txtCardname.setColumns(10);
 				}
