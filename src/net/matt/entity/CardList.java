@@ -72,9 +72,25 @@ public final class CardList {
 		iStream.close();
 	}
 	
+	public static void loadCardList(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException{
+		ObjectInputStream iStream = new ObjectInputStream(new FileInputStream(fileName));
+		cards = (ArrayList<Card>) iStream.readObject();
+		iStream.close();
+	}
+	
 	public static void saveCardList(File dataFile) throws FileNotFoundException, IOException{
 		ObjectOutputStream oStream = new ObjectOutputStream(new FileOutputStream(dataFile));
 		oStream.writeObject(cards);
 		oStream.close();
+	}
+	
+	public static void saveCardList(String fileName) throws FileNotFoundException, IOException{
+		ObjectOutputStream oStream = new ObjectOutputStream(new FileOutputStream(fileName));
+		oStream.writeObject(cards);
+		oStream.close();
+	}
+	
+	public static ArrayList<Card> getCards() {
+		return cards;
 	}
 }

@@ -251,6 +251,7 @@ public class CardCreatorScreen extends JDialog {
 								rarity = Rarity.LEGENDARY;
 							
 							CardList.addCard(name, description, type, rarity, color);
+							dispose();
 							
 						}
 						

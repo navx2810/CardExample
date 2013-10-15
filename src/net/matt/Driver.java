@@ -1,16 +1,22 @@
 package net.matt;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+import net.matt.entity.Card;
+import net.matt.entity.CardList;
+
 public class Driver {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException {
 		
 		DeckManager deckManager = new DeckManager();
 		
-		deckManager.constructDeck("TestTwo", 15, true);
-		System.out.println(deckManager);
-		System.out.println(deckManager.drawCard());
-		System.out.println(deckManager.drawCard());
-		System.out.println(deckManager.cardsRemaining);
+		CardList.loadCardList(new File("data.bin"));
+		for (Card card : CardList.getCards()) {
+			System.out.println(card);
+		}
 
 	}
 
