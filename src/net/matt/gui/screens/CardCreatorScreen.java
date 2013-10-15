@@ -18,11 +18,15 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ButtonGroup;
 
 public class CardCreatorScreen extends JDialog {
 
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtCardname;
+	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
+	private final ButtonGroup buttonGroup_2 = new ButtonGroup();
 
 	/**
 	 * Launch the application.
@@ -42,7 +46,8 @@ public class CardCreatorScreen extends JDialog {
 	 */
 	public CardCreatorScreen() {
 		setTitle("Card Creator");
-		setBounds(100, 100, 450, 300);
+		setSize(472, 312);
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -95,14 +100,17 @@ public class CardCreatorScreen extends JDialog {
 				}
 				{
 					JRadioButton rdbtnMob = new JRadioButton("MOB");
+					buttonGroup.add(rdbtnMob);
 					panel_1.add(rdbtnMob);
 				}
 				{
 					JRadioButton rdbtnStructure = new JRadioButton("STRUCTURE");
+					buttonGroup.add(rdbtnStructure);
 					panel_1.add(rdbtnStructure);
 				}
 				{
 					JRadioButton rdbtnSpell = new JRadioButton("SPELL");
+					buttonGroup.add(rdbtnSpell);
 					panel_1.add(rdbtnSpell);
 				}
 			}
@@ -120,23 +128,61 @@ public class CardCreatorScreen extends JDialog {
 				}
 				{
 					JRadioButton rdbtnRed = new JRadioButton("RED");
+					buttonGroup_1.add(rdbtnRed);
 					panel_1.add(rdbtnRed);
 				}
 				{
 					JRadioButton rdbtnBlue = new JRadioButton("BLUE");
+					buttonGroup_1.add(rdbtnBlue);
 					panel_1.add(rdbtnBlue);
 				}
 				{
 					JRadioButton rdbtnGreen = new JRadioButton("GREEN");
+					buttonGroup_1.add(rdbtnGreen);
 					panel_1.add(rdbtnGreen);
 				}
 				{
 					JRadioButton rdbtnWhite = new JRadioButton("WHITE");
+					buttonGroup_1.add(rdbtnWhite);
 					panel_1.add(rdbtnWhite);
 				}
 				{
 					JRadioButton rdbtnBlack = new JRadioButton("BLACK");
+					buttonGroup_1.add(rdbtnBlack);
 					panel_1.add(rdbtnBlack);
+				}
+			}
+		}
+		{
+			JPanel panel = new JPanel();
+			panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, null, null), "", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+			contentPanel.add(panel);
+			{
+				JPanel panel_1 = new JPanel();
+				panel.add(panel_1);
+				{
+					JLabel lblRarity = new JLabel("Rarity:");
+					panel_1.add(lblRarity);
+				}
+				{
+					JRadioButton rdbtnUncommon = new JRadioButton("UNCOMMON");
+					buttonGroup_2.add(rdbtnUncommon);
+					panel_1.add(rdbtnUncommon);
+				}
+				{
+					JRadioButton rdbtnCommon = new JRadioButton("COMMON");
+					buttonGroup_2.add(rdbtnCommon);
+					panel_1.add(rdbtnCommon);
+				}
+				{
+					JRadioButton rdbtnRare = new JRadioButton("RARE");
+					buttonGroup_2.add(rdbtnRare);
+					panel_1.add(rdbtnRare);
+				}
+				{
+					JRadioButton rdbtnLegendary = new JRadioButton("LEGENDARY");
+					buttonGroup_2.add(rdbtnLegendary);
+					panel_1.add(rdbtnLegendary);
 				}
 			}
 		}
