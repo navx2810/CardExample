@@ -17,6 +17,7 @@ public class Driver {
 		for (Card card : CardList.getCards()) {
 			System.out.println(card);
 		}
+		System.out.println("Done");
 
 	}
 

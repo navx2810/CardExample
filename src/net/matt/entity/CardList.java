@@ -34,7 +34,6 @@ public final class CardList {
 	public static Card marshGrownTree = new Card("Marsh-grown Tree", "It was raised in a marsh.", Type.STRUCTURE, Rarity.COMMON, Color.BLACK);
 	public static Card orcishWall = new Card("Orcish Wall", "This wall has brought shame to its family", Type.STRUCTURE, Rarity.UNCOMMON, Color.RED);
 	
-	
 	public static Card getRandomCard(){
 		int x = random.nextInt(NUM_OF_CARDS);
 		switch (x) {
@@ -72,6 +71,7 @@ public final class CardList {
 		iStream.close();
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static void loadCardList(String fileName) throws FileNotFoundException, IOException, ClassNotFoundException{
 		ObjectInputStream iStream = new ObjectInputStream(new FileInputStream(fileName));
 		cards = (ArrayList<Card>) iStream.readObject();
@@ -92,5 +92,21 @@ public final class CardList {
 	
 	public static ArrayList<Card> getCards() {
 		return cards;
+	}
+	
+	public static boolean has(String cardName){
+		for (Card card : cards) 
+			if(card.getName().equals(cardName))
+				return true;
+		return false;
+	}
+	
+	public static Card getCard(String cardName){
+		Card tempCard = null;
+		for (Card card : cards)
+			if(card.getName().equals(cardName))
+				tempCard = card;
+		return tempCard;
+		
 	}
 }
