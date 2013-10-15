@@ -1,5 +1,12 @@
 package net.matt.entity;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -50,5 +57,24 @@ public final class CardList {
 	
 	public static void addCard(String name, String description, Type type, Rarity rarity, Color color){
 		cards.add(new Card(name, description, type, rarity, color));
+		System.out.println("card added");
+	}
+	
+	public static void addCard(Card card){
+		cards.add(card);
+		System.out.println("card added");
+	}
+	
+	@SuppressWarnings("unchecked")
+	public static void loadCardList(File dataFile) throws FileNotFoundException, IOException, ClassNotFoundException{
+		ObjectInputStream iStream = new ObjectInputStream(new FileInputStream(dataFile));
+		cards = (ArrayList<Card>) iStream.readObject();
+		iStream.close();
+	}
+	
+	public static void saveCardList(File dataFile) throws FileNotFoundException, IOException{
+		ObjectOutputStream oStream = new ObjectOutputStream(new FileOutputStream(dataFile));
+		oStream.writeObject(cards);
+		oStream.close();
 	}
 }
