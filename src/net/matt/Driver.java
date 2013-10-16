@@ -11,7 +11,6 @@ public class Driver {
 
 	public static void main(String[] args) throws FileNotFoundException, ClassNotFoundException, IOException {
 		
-		DeckManager deckManager = new DeckManager();
 		
 		CardList.loadCardList(new File("data.bin"));
 		for (Card card : CardList.getCards()) {

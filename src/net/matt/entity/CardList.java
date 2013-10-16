@@ -18,6 +18,7 @@ public final class CardList {
 	
 	static Random random = new Random();
 	final static int NUM_OF_CARDS = 12;
+	final static String FILE_NAME = "data.bin";
 	
 	static ArrayList<Card> cards = new ArrayList<Card>();
 	
@@ -78,6 +79,13 @@ public final class CardList {
 		iStream.close();
 	}
 	
+	@SuppressWarnings("unchecked")
+	public static void loadCardList() throws FileNotFoundException, IOException, ClassNotFoundException{
+		ObjectInputStream iStream = new ObjectInputStream(new FileInputStream(FILE_NAME));
+		cards = (ArrayList<Card>) iStream.readObject();
+		iStream.close();
+	}
+	
 	public static void saveCardList(File dataFile) throws FileNotFoundException, IOException{
 		ObjectOutputStream oStream = new ObjectOutputStream(new FileOutputStream(dataFile));
 		oStream.writeObject(cards);
@@ -86,6 +94,12 @@ public final class CardList {
 	
 	public static void saveCardList(String fileName) throws FileNotFoundException, IOException{
 		ObjectOutputStream oStream = new ObjectOutputStream(new FileOutputStream(fileName));
+		oStream.writeObject(cards);
+		oStream.close();
+	}
+	
+	public static void saveCardList() throws FileNotFoundException, IOException{
+		ObjectOutputStream oStream = new ObjectOutputStream(new FileOutputStream(FILE_NAME));
 		oStream.writeObject(cards);
 		oStream.close();
 	}
