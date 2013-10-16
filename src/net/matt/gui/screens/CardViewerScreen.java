@@ -5,16 +5,12 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-import java.awt.Component;
-
-import javax.swing.Box;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 
 import net.matt.entity.Card;
 
@@ -26,9 +22,9 @@ public class CardViewerScreen extends JDialog {
 	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField tfCardName;
-	private JTextField txtCardtype;
-	private JTextField txtCardcolor;
 	private JTextField txtCardrarity;
+	private JTextField txtCardType;
+	private JTextField txtCardColor;
 
 
 	/**
@@ -37,7 +33,8 @@ public class CardViewerScreen extends JDialog {
 	public CardViewerScreen(Card card) {
 		setResizable(false);
 		setTitle("Card Viewer");
-		setBounds(100, 100, 507, 300);
+		setSize(565,300);
+		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -53,30 +50,9 @@ public class CardViewerScreen extends JDialog {
 			{
 				tfCardName = new JTextField();
 				tfCardName.setEditable(false);
+				tfCardName.setText(card.getName());
 				panel.add(tfCardName);
-				tfCardName.setColumns(10);
-			}
-			{
-				JLabel lblType = new JLabel("Type: ");
-				panel.add(lblType);
-			}
-			{
-				txtCardtype = new JTextField();
-				txtCardtype.setEditable(false);
-				txtCardtype.setText("CardType");
-				panel.add(txtCardtype);
-				txtCardtype.setColumns(10);
-			}
-			{
-				JLabel lblColor = new JLabel("Color:");
-				panel.add(lblColor);
-			}
-			{
-				txtCardcolor = new JTextField();
-				txtCardcolor.setEditable(false);
-				txtCardcolor.setText("CardColor");
-				panel.add(txtCardcolor);
-				txtCardcolor.setColumns(10);
+				tfCardName.setColumns(20);
 			}
 		}
 		{
@@ -89,14 +65,32 @@ public class CardViewerScreen extends JDialog {
 			{
 				txtCardrarity = new JTextField();
 				txtCardrarity.setEditable(false);
-				txtCardrarity.setText("CardRarity");
+				txtCardrarity.setText(card.getRarity().toString());
 				panel.add(txtCardrarity);
 				txtCardrarity.setColumns(10);
 			}
-		}
-		{
-			Component horizontalStrut = Box.createHorizontalStrut(80);
-			contentPanel.add(horizontalStrut);
+			{
+				JLabel label = new JLabel("Type: ");
+				panel.add(label);
+			}
+			{
+				txtCardType = new JTextField();
+				txtCardType.setText(card.getType().toString());
+				txtCardType.setEditable(false);
+				txtCardType.setColumns(10);
+				panel.add(txtCardType);
+			}
+			{
+				JLabel label = new JLabel("Color:");
+				panel.add(label);
+			}
+			{
+				txtCardColor = new JTextField();
+				txtCardColor.setText(card.getColor().toString());
+				txtCardColor.setEditable(false);
+				txtCardColor.setColumns(10);
+				panel.add(txtCardColor);
+			}
 		}
 		{
 			JPanel panel = new JPanel();
@@ -110,10 +104,11 @@ public class CardViewerScreen extends JDialog {
 				panel.add(scrollPane);
 				{
 					JTextArea txtrCarddescription = new JTextArea();
+					txtrCarddescription.setEditable(false);
 					txtrCarddescription.setColumns(30);
 					txtrCarddescription.setRows(6);
 					scrollPane.setViewportView(txtrCarddescription);
-					txtrCarddescription.setText("CardDescription");
+					txtrCarddescription.setText(card.getDescription());
 				}
 			}
 		}

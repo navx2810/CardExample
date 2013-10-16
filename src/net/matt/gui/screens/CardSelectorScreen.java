@@ -17,6 +17,7 @@ import javax.swing.border.TitledBorder;
 
 import net.matt.entity.Card;
 import net.matt.entity.CardList;
+import javax.swing.JLabel;
 
 public class CardSelectorScreen extends JDialog {
 
@@ -73,6 +74,10 @@ public class CardSelectorScreen extends JDialog {
 					scrollPane.setViewportView(jlCardList);
 				}
 			}
+		}
+		{
+			JLabel lblNoteIfYou = new JLabel("Note: If nothing appears, try loading.");
+			contentPanel.add(lblNoteIfYou);
 		}
 		{
 			JPanel buttonPane = new JPanel();

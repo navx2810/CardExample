@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import net.matt.entity.CardList;
+import java.awt.FlowLayout;
 
 public class MainScreen extends JFrame {
 
@@ -53,6 +54,8 @@ public class MainScreen extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panel.getLayout();
+		flowLayout.setVgap(15);
 		contentPane.add(panel, BorderLayout.WEST);
 		
 		JButton btnCreateCard = new JButton("Create Card");
@@ -77,6 +80,8 @@ public class MainScreen extends JFrame {
 		panel.add(btnDeleteCard);
 		
 		JPanel panel_1 = new JPanel();
+		FlowLayout flowLayout_1 = (FlowLayout) panel_1.getLayout();
+		flowLayout_1.setVgap(15);
 		contentPane.add(panel_1, BorderLayout.EAST);
 		
 		JButton btnSave = new JButton("Save");
