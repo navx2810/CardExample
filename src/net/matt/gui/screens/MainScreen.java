@@ -2,21 +2,15 @@ package net.matt.gui.screens;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.io.File;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import javax.swing.JTextField;
-import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 import net.matt.entity.CardList;
 
@@ -28,7 +22,6 @@ public class MainScreen extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JTextField txtFilename;
 
 	/**
 	 * Launch the application.
@@ -52,7 +45,7 @@ public class MainScreen extends JFrame {
 	public MainScreen() {
 		setTitle("Card Game Manger");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(450,111);
+		setSize(450,96);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -76,10 +69,8 @@ public class MainScreen extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				{
-					String cardName = JOptionPane.showInputDialog("Name of the card?");
-					if(CardList.has(cardName))
-						CardList.getCards().remove(CardList.getCard(cardName));
-						
+					CardSelectorScreen sCardSelectorScreen = new CardSelectorScreen();
+					sCardSelectorScreen.setVisible(true);
 				}
 			}
 		});
@@ -93,14 +84,11 @@ public class MainScreen extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				{
-					File file = new File(txtFilename.getText());
 					try {
-						CardList.saveCardList(file);
+						CardList.saveCardList();
 					} catch (FileNotFoundException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -112,15 +100,12 @@ public class MainScreen extends JFrame {
 		btnLoad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					CardList.loadCardList(txtFilename.getText());
+					CardList.loadCardList();
 				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (ClassNotFoundException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 			}
@@ -129,13 +114,6 @@ public class MainScreen extends JFrame {
 		
 		JPanel panel_2 = new JPanel();
 		contentPane.add(panel_2, BorderLayout.SOUTH);
-		
-		JLabel lblFileName = new JLabel("File Name:");
-		panel_2.add(lblFileName);
-		
-		txtFilename = new JTextField();
-		panel_2.add(txtFilename);
-		txtFilename.setColumns(10);
 	}
 
 }
