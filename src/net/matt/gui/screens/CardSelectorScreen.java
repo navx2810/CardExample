@@ -92,14 +92,18 @@ public class CardSelectorScreen extends JDialog {
 				getRootPane().setDefaultButton(okButton);
 			}
 			{
-				JButton cancelButton = new JButton("Cancel");
-				cancelButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();
+				JButton btnViewCard = new JButton("View Card");
+				btnViewCard.addActionListener(new ActionListener() {
+					public void actionPerformed(ActionEvent arg0) {
+						
+						{
+							CardViewerScreen cardViewerScreen = new CardViewerScreen(CardList.getCards().get(jlCardList.getSelectedIndex()));
+							cardViewerScreen.setVisible(true);
+							dispose();
+						}
 					}
 				});
-				cancelButton.setActionCommand("Cancel");
-				buttonPane.add(cancelButton);
+				buttonPane.add(btnViewCard);
 			}
 		}
 	}
