@@ -87,8 +87,10 @@ public class CardSelectorScreen extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						if(!jlCardList.isSelectionEmpty()){
 						int cardNum = jlCardList.getSelectedIndex();
 						CardList.getCards().remove(cardNum);
+						}
 						dispose();
 					}
 				});
@@ -102,8 +104,10 @@ public class CardSelectorScreen extends JDialog {
 					public void actionPerformed(ActionEvent arg0) {
 						
 						{
+							if(!jlCardList.isSelectionEmpty()){
 							CardViewerScreen cardViewerScreen = new CardViewerScreen(CardList.getCards().get(jlCardList.getSelectedIndex()));
 							cardViewerScreen.setVisible(true);
+							}
 							dispose();
 						}
 					}
