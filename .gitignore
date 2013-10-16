@@ -4,3 +4,11 @@ bin/net/matt/entity/CardList.class
 bin/net/matt/Driver.class
 
 bin/net/matt/Driver.class
+
+*.class
+
+bin/net/matt/gui/screens/CardCreatorScreen$1.class
+
+bin/net/matt/gui/screens/CardCreatorScreen.class
+
+bin/net/matt/gui/screens/CardCreatorScreen.class
