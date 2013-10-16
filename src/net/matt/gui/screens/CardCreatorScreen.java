@@ -43,9 +43,10 @@ public class CardCreatorScreen extends JDialog {
 	private JRadioButton rdbtnWhite;
 	private JRadioButton rdbtnBlack;
 	private JRadioButton rdbtnUncommon;
-	private JRadioButton rdbtnCommon;
 	private JRadioButton rdbtnRare;
 	private JRadioButton rdbtnLegendary;
+	private JRadioButton rdbtnCommon;
+	
 
 	/**
 	 * Launch the application.
@@ -183,14 +184,14 @@ public class CardCreatorScreen extends JDialog {
 					panel_1.add(lblRarity);
 				}
 				{
-					rdbtnUncommon = new JRadioButton("UNCOMMON");
-					buttonGroup_2.add(rdbtnUncommon);
-					panel_1.add(rdbtnUncommon);
-				}
-				{
 					rdbtnCommon = new JRadioButton("COMMON");
 					buttonGroup_2.add(rdbtnCommon);
 					panel_1.add(rdbtnCommon);
+				}
+				{
+					rdbtnUncommon = new JRadioButton("UNCOMMON");
+					buttonGroup_2.add(rdbtnUncommon);
+					panel_1.add(rdbtnUncommon);
 				}
 				{
 					rdbtnRare = new JRadioButton("RARE");
