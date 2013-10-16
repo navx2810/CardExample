@@ -49,19 +49,6 @@ public class CardCreatorScreen extends JDialog {
 	
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		try {
-			CardCreatorScreen dialog = new CardCreatorScreen();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-			dialog.setVisible(true);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
 	 * Create the dialog.
 	 */
 	public CardCreatorScreen() {

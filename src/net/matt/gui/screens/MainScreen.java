@@ -1,7 +1,7 @@
 package net.matt.gui.screens;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import net.matt.entity.CardList;
-import java.awt.FlowLayout;
 
 public class MainScreen extends JFrame {
 
@@ -24,21 +23,6 @@ public class MainScreen extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					MainScreen frame = new MainScreen();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
